@@ -2,58 +2,39 @@
 import random
 import re
 
+f = open("input.txt", "r")
+
+output=[f.readline().strip().split(' ')]
+
 class SpaceAllocation(object):
     def __init__(self):
-        self.offices=[]
-        self.livingspaces=[]
-        self.fellow_name=[]
-        self.staff_name=[]
-        # room=['offices','livingspaces']
-        # office= ["zeus","lantern","megamind","archulis"]
-        # livingspace=["thor","loki","hades","titans","cronus","pocahunters"]
         occupied_rooms=[]
         total_capacity = 10
 
-    # def space_to_allocate(self):
-    #     offices = input("\n Create an office room: ")
-    #     livingspaces= input("\n Create a living space: ")
-    #     return offices
-    #     return livingspaces
-
-    # def person(self):
-    #     fellow_name= input("\n Enter Fellow name: ")
-    #     staff_name= input("\n Enter Staff name: ")
-    #     return fellow_name
-    #     return staff_name
-
-    def create_room(self,offices='',livingspaces='',occupied_rooms=[],total_capacity=10):
-        rooms=['offices','livingspaces']
-        offices=4
-        livingspaces=6
-        if len(occupied_rooms) <total_capacity:
-            occupied_rooms += rooms
-            return (occupied_rooms)
-        elif offices<4:
-            offices += staff_name
-            offices += fellow_name
-            return offices
-        
-        elif livingspaces< 6:
-            livingspaces+=fellow_name
-            return livingspaces
-        else:
-            if len(occupied_rooms) == total_capacity:
-                return "All room spaces are occupied"
-        #     print("The Dojo room does not exist")
-        #     print("The person mentioned is not an employee!Try Again.")
-    # def employees(self,fellow_name='',staff_name=''):
-    #     fellow_name=self.person()
-    #     staff_name=self.person()
-
-
+    def add_person(self):
+        try:
+            offices=input("\n Create_room Office: ")
+            print("An office called %s has been successfully created!" %(offices))
+            livingspaces=input("\n Create_room  Living Space: ")
+            print("A living space called %s has been successfully created!" %(livingspaces))
+            staff_firstname= input("\n Add a Staff first name : ") 
+            staff_fullname= input("\n Add a Staff full name: ")
+            print("Staff %s has been successfully added. \n %s has been allocated the office %s" %(staff_fullname,staff_firstname,offices))
+            fellow_firstname= input ("\n Add a Fellow first name: ")
+            fellow_fullname= input ("\n Add a Fellow full name: ")
+            wants_accomodation= ('Y','N')
+            wants_accomodation = input ("\n Do you want accommodation? : ") 
+            if wants_accomodation == 'Y':
+                print("% s has been successfully added. \n %s has been allocated the office %s \n %s has been allocated the living space %s. " %(fellow_fullname,fellow_firstname,offices,fellow_firstname,livingspaces))
+            elif wants_accomodation == 'N':
+                print("% s has been successfully added. \n %s has been allocated the office %s ." % (fellow_fullname,fellow_firstname,offices))
+            else:
+                print(" Invalid Input.Enter either Y  or  N ") 
+        except (RuntimeError, TypeError, NameError):
+            pass
 def main():
     my_class_instance=SpaceAllocation()
-    my_class_instance.create_room()
+    my_class_instance.add_person()
 
     
 

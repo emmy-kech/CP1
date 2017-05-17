@@ -37,7 +37,7 @@ class TestCreateRoom(unittest.TestCase):
         self.assertTrue(loki_livingspace)
         self.assertEqual(new_room_count - initial_room_count,2)
 
-    def allocate_person_room(self):
+    def allocate_personcls_room(self):
         my_class_instance=SpaceAllocation()
         andela_employees=my_class_instance.add_person("fellow","staff")
 
